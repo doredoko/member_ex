@@ -5,18 +5,18 @@ class CreateElectors < ActiveRecord::Migration
       t.string :yomi
       t.string :town
       t.string :banchi
-      t.boolean :kakunin
+      t.boolean :kakunin, :default => 0      
       t.integer :kazoku_id
       t.string :postal_code
       t.string :bikou
       t.string :tel_sinai
-      t.boolean :kouenkai
-      t.boolean :douki
-      t.integer :kitaichi
+      t.boolean :kouenkai, :default => 0      
+      t.boolean :douki, :default => 0      
+      t.integer :kitaichi, :default => 0      
       t.integer :syoukai_id
-      t.boolean :tehai_1
-      t.boolean :tehai_2
-      t.boolean :tehai_3
+      t.boolean :tehai_1, :default => 0      
+      t.boolean :tehai_2, :default => 0      
+      t.boolean :tehai_3, :default => 0      
 
       t.timestamps null: false
     end

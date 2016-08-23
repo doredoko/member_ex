@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      person: 名簿人  #g
+
+    attributes:
+      person:
+        banchi: 番地  #g
+        bikou: 備考  #g
+        city: 市町村  #g
+        d0407: 4/7  #g
+        d0512: 5/12  #g
+        d0728: 7/28  #g
+        d0817: 8/17  #g
+        d0916: 9/16  #g
+        douki: 同期  #g
+        genki: 元気  #g
+        gmaps: gmaps  #g
+        keitai: 携帯番号  #g
+        kihukin: 寄付金  #g
+        kouenkai: 後援会  #g
+        latitude: latitude  #g
+        level: 期待値  #g
+        longitude: longitude  #g
+        name: 名前  #g
+        postal_code: 郵便番号  #g
+        syoukai_id: 紹介者  #g
+        tel_sigai: 市外局番  #g
+        tel_sinai: 市内局番  #g
+        town: 町域名  #g

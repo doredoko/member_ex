@@ -1,0 +1,55 @@
+<%# show_filters: :when_filtered %>
+<%= grid(@people_grid) do |g|
+  g.column   do |person|
+    link_to('edit', edit_person_path(person))
+  end
+  g.column   do |person|
+    link_to('show', person)
+  end
+  g.column name:  'ID', attribute: 'id'  do |task|
+    task.id
+  end
+
+  g.column name:  '名前', attribute: 'name'   do |task|
+    task.name
+  end
+
+  g.column  name:  '町域名', attribute: 'town'    do |task|
+    task.town
+  end
+
+  g.column  name:  '番地', attribute: 'banchi'   do |task|
+    task.banchi
+  end
+
+  g.column name:  '備考', attribute: 'bikou'   do  |task|
+    task.bikou
+  end
+    g.column name:  '市内番号', attribute: 'tel_sinai'   do |task|
+    task.tel_sinai
+  end
+    g.column name:  '携帯番号', attribute: 'keitai'   do |task|
+    task.keitai
+  end
+  g.column name:  '同期', attribute: 'douki'   do |task|
+    task.douki? ? 'true' : 'false'
+  end
+
+  g.column name:  '元気', attribute: 'genki'   do |task|
+    task.genki? ? 'true' : 'false'
+  end
+
+  g.column  name:  '後援', attribute: 'kouenkai'   do |task|
+    task.kouenkai? ? 'true' : 'false'
+  end
+
+   g.column name:  '紹介', attribute: 'syoukai_id'  do |task|
+    task.syoukai_id
+  end
+  
+  g.column name:  '期待', attribute: 'level'   do |task|
+    task.level
+  end 
+
+
+end -%>

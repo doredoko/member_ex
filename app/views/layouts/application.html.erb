@@ -1,14 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>MemberEx</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Member" %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+   <%= javascript_include_tag "application" %>
+  </head>
+  <body>
 
-<%= yield %>
+   <div class="navbar navbar-fluid-top">
+     <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+           <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+         </a>
+         <a class="brand" href="#">名簿</a>
+          <div class="container-fluid nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "分散図", "/map"  %></li>
+              <li><%= link_to "後援会一覧", "/people"  %></li>
+              <li><%= link_to '後援会新規登録', new_person_path %></li>
 
-</body>
+            </ul>
+          </div><!--/.nav-collapse -->
+       </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <!--<div class="span3">-->
+         <!-- <div class="well sidebar-nav">-->
+            <!--<ul class="nav nav-list">-->
+              <!--<li class="nav-header">Sidebar</li>-->
+              <!--<li><%= link_to "Link1", "/path1"  %></li>-->
+              <!--<li><%= link_to "Link2", "/path2"  %></li>-->
+              <!--<li><%= link_to "Link3", "/path3"  %></li>-->
+            <!--</ul>-->
+          <!--</div><!--/.well -->
+        <!--</div><!--/span-->
+        <div class="span9">
+          <!--%= bootstrap_flash %-->
+          <%= yield %>
+        <%= yield :scripts %>          
+        </div>
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Powerd by Ruby on Riles</p>
+
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>

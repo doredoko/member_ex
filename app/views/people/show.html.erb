@@ -1,94 +1,70 @@
+<%= stylesheet_link_tag "inside/gmaps4rails.css", :media => "all" %>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <b>名前:</b>
   <%= @person.name %>
 </p>
-
-<p>
-  <strong>Postal code:</strong>
+<p>  
+  <b>郵便番号:</b>
   <%= @person.postal_code %>
-</p>
 
 <p>
-  <strong>City:</strong>
+  <b>市町村:</b>
   <%= @person.city %>
-</p>
-
-<p>
-  <strong>Town:</strong>
+  <b>町域名:</b>
   <%= @person.town %>
-</p>
-
-<p>
-  <strong>Banchi:</strong>
+  <b>番地:</b>
   <%= @person.banchi %>
 </p>
 
-<p>
-  <strong>Tel sigai:</strong>
+<p>  
+  <b>市外局番:</b>
   <%= @person.tel_sigai %>
-</p>
-
-<p>
-  <strong>Tel sinai:</strong>
+  <b>市内局番:</b>
   <%= @person.tel_sinai %>
-</p>
-
-<p>
-  <strong>Keitai:</strong>
+  <b>携帯番号:</b>
   <%= @person.keitai %>
 </p>
 
 <p>
-  <strong>Bikou:</strong>
+  <b>備考:</b>
   <%= @person.bikou %>
 </p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @person.latitude %>
-</p>
-
-<p>
-  <strong>Longtude:</strong>
-  <%= @person.longtude %>
-</p>
-
-<p>
-  <strong>Gmaps:</strong>
-  <%= @person.gmaps %>
-</p>
-
-<p>
-  <strong>Douki:</strong>
+  <b>後援会:</b>
+  <%= @person.kouenkai %>  
+  <b>同期:</b>
   <%= @person.douki %>
-</p>
-
-<p>
-  <strong>Genki:</strong>
+  <b>元気:</b>
   <%= @person.genki %>
 </p>
 
 <p>
-  <strong>Kouenkai:</strong>
-  <%= @person.kouenkai %>
-</p>
-
-<p>
-  <strong>Kihukin:</strong>
-  <%= @person.kihukin %>
-</p>
-
-<p>
-  <strong>Syoukai:</strong>
+  <b>紹介者:</b>
   <%= @person.syoukai_id %>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <b>期待値:</b>
   <%= @person.level %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to '編集', edit_person_path(@person) %> |
+<%= link_to '戻る', people_path %>
+<%# commented out original gmaps4rails code to compare %>
+<%#= gmaps4rails(@json) %>      
+<%= gmaps( 
+  :markers => { :data => @json }, 
+  :map_options => { :auto_adjust => true, # :auto_adjust map to center on location
+        :auto_zoom => false,  # :auto_zoom defaults to full zoom in, set to false to utilize :zoom
+        :zoom => 15 }   # :zoom 0 is fully zoomed out (world view), 21 is fully zoomed in (street view)
+) %>
+
+<h3>近所の人</h3>
+<ul>
+<% for person in @person.nearbys(1) %>
+  <li><%= link_to person.name, person %>&nbsp;&nbsp;<%= link_to person.full_street_address, person %> (<%= (person.distance.round(2)*1.6).round(2)  %> km)</li>
+<% end %>
+</ul><!--miles-->

@@ -1,61 +1,57 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE HTML>
+<html>
+  <head>
 
-<h1>Listing People</h1>
+    <script type="text/javascript">
+      function onClickDisplay() {
+        // 選択行の行IDを配列で取得
+        jQuery('#list').getGridParam('selarrrow');
+        var selrows = jQuery('#list').getGridParam('selarrrow');
+        var msg = "";
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Postal code</th>
-      <th>City</th>
-      <th>Town</th>
-      <th>Banchi</th>
-      <th>Tel sigai</th>
-      <th>Tel sinai</th>
-      <th>Keitai</th>
-      <th>Bikou</th>
-      <th>Latitude</th>
-      <th>Longtude</th>
-      <th>Gmaps</th>
-      <th>Douki</th>
-      <th>Genki</th>
-      <th>Kouenkai</th>
-      <th>Kihukin</th>
-      <th>Syoukai</th>
-      <th>Level</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        if (selrows.length > 0)
+        {
+          for (var i = 0; i < selrows.length; i++)
+          {
+            // 選択行
+            var row = $('#list').getRowData(selrows[i]);
+            msg += "invid: ";
+            msg += row.invid;
+            msg += "\r\n";
+          }
+        }
+        else
+        {
+          msg = "行を選択してください。";
+        }
+        alert(msg);
+      }
 
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.name %></td>
-        <td><%= person.postal_code %></td>
-        <td><%= person.city %></td>
-        <td><%= person.town %></td>
-        <td><%= person.banchi %></td>
-        <td><%= person.tel_sigai %></td>
-        <td><%= person.tel_sinai %></td>
-        <td><%= person.keitai %></td>
-        <td><%= person.bikou %></td>
-        <td><%= person.latitude %></td>
-        <td><%= person.longtude %></td>
-        <td><%= person.gmaps %></td>
-        <td><%= person.douki %></td>
-        <td><%= person.genki %></td>
-        <td><%= person.kouenkai %></td>
-        <td><%= person.kihukin %></td>
-        <td><%= person.syoukai_id %></td>
-        <td><%= person.level %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Person', new_person_path %>
+      jQuery(document).ready(function(){ 
+        jQuery("#list").jqGrid({
+          url:'/jqgrid/invheader',
+          datatype: 'xml',
+          mtype: 'GET',
+          colNames:['番号','名前', '市内電話番号'],　←　表のタイトル
+          colModel :[ 
+            {name:'id', index:'id', width:55}, 
+            {name:'name', index:'name', width:90}, 
+            {name:'tel_sinai', index:'tel_sinai', width:80, align:'right'}, 
+          pager: jQuery('#pager'),
+          rowNum:10,
+          rowList:[10,20,30],
+          sortname: 'id',
+          sortorder: "desc",
+          viewrecords: true,
+          caption: 'My first grid',
+          multiselect: true　←　表の左のチェックボックスの表示
+        }); 
+      }); 
+    </script>
+  </head>
+  <body>
+    <table id="list" class="scroll"></table>
+    <div id="pager" class="scroll" style="text-align:center;"></div>
+    <input type="button" value="選択行を表示" onclick="onClickDisplay();" />
+  </body>
+</html>

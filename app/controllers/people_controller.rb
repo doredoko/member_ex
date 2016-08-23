@@ -4,17 +4,29 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people_grid = initialize_grid(Person,
+    :order => 'people.id',
+    :order_direction => 'desc',
+    :per_page => 20,
+)
+
   end
 
   # GET /people/1
   # GET /people/1.json
   def show
+    @person = Person.find(params[:id])
+    @json = @person.to_gmaps4rails
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @person }
+    end
   end
 
   # GET /people/new
   def new
     @person = Person.new
+  
   end
 
   # GET /people/1/edit

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :electors
-  resources :people
+  resources :people  do
+  get 'page/:page', :action => :index, :on => :collection
+  end
+  get "home/index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -48,7 +52,10 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
+   root :to => 'people#map'
 
+  # See how all your routes lay out with "rake routes"
+  match ':action', :controller => :people
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
