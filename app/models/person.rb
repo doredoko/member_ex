@@ -1,6 +1,5 @@
 class Person < ActiveRecord::Base   
-  attr_accessible :banchi, :bikou, :city, :douki, :genki,:gmaps, :keitai, :kihukin,:kouenkai,:latitude,:longitude ,:level, :name, :postal_code, :syoukai_id,:tel_sigai,:tel_sinai, :town
-
+:banchi, :bikou, :city, :douki, :genki,:gmaps, :keitai, :kihukin,:kouenkai,:latitude,:longitude ,:level,  :name, :postal_code, :syoukai_id,:tel_sigai,:tel_sinai, :town
   geocoded_by :full_street_address
 
   def full_street_address
