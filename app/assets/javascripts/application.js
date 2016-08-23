@@ -10,8 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require underscore
-//= require gmaps/google
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
@@ -20,4 +18,6 @@
 //= require wice_grid
 //= require bootstrap-datepicker
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .

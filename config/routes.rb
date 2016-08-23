@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   resources :people  do
   get 'page/:page', :action => :index, :on => :collection
   end
-  get "home/index"
-
+  root 'people#map'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -52,7 +51,7 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
-   root :to => 'people#map'
+
 
   # See how all your routes lay out with "rake routes"
  # match ':action', :controller => :people
