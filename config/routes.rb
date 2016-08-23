@@ -55,7 +55,7 @@ Rails.application.routes.draw do
    root :to => 'people#map'
 
   # See how all your routes lay out with "rake routes"
-  match ':action', :controller => :people
+ # match ':action', :controller => :people
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
