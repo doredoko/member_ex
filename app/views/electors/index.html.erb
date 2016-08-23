@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Electors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Yomi</th>
+      <th>Town</th>
+      <th>Banchi</th>
+      <th>Kakunin</th>
+      <th>Kazoku</th>
+      <th>Postal code</th>
+      <th>Bikou</th>
+      <th>Tel sinai</th>
+      <th>Kouenkai</th>
+      <th>Douki</th>
+      <th>Kitaichi</th>
+      <th>Syoukai</th>
+      <th>Tehai 1</th>
+      <th>Tehai 2</th>
+      <th>Tehai 3</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @electors.each do |elector| %>
+      <tr>
+        <td><%= elector.name %></td>
+        <td><%= elector.yomi %></td>
+        <td><%= elector.town %></td>
+        <td><%= elector.banchi %></td>
+        <td><%= elector.kakunin %></td>
+        <td><%= elector.kazoku_id %></td>
+        <td><%= elector.postal_code %></td>
+        <td><%= elector.bikou %></td>
+        <td><%= elector.tel_sinai %></td>
+        <td><%= elector.kouenkai %></td>
+        <td><%= elector.douki %></td>
+        <td><%= elector.kitaichi %></td>
+        <td><%= elector.syoukai_id %></td>
+        <td><%= elector.tehai_1 %></td>
+        <td><%= elector.tehai_2 %></td>
+        <td><%= elector.tehai_3 %></td>
+        <td><%= link_to 'Show', elector %></td>
+        <td><%= link_to 'Edit', edit_elector_path(elector) %></td>
+        <td><%= link_to 'Destroy', elector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Elector', new_elector_path %>

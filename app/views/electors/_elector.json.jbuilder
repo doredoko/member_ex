@@ -1,0 +1,2 @@
+json.extract! elector, :id, :name, :yomi, :town, :banchi, :kakunin, :kazoku_id, :postal_code, :bikou, :tel_sinai, :kouenkai, :douki, :kitaichi, :syoukai_id, :tehai_1, :tehai_2, :tehai_3, :created_at, :updated_at
+json.url elector_url(elector, format: :json)

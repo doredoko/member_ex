@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  postal_code: MyString
+  city: MyString
+  town: MyString
+  banchi: MyString
+  tel_sigai: MyString
+  tel_sinai: MyString
+  keitai: MyString
+  bikou: MyString
+  latitude: 1.5
+  longtude: 1.5
+  gmaps: false
+  douki: false
+  genki: false
+  kouenkai: false
+  kihukin: 1.5
+  syoukai_id: 1
+  level: 1
+
+two:
+  name: MyString
+  postal_code: MyString
+  city: MyString
+  town: MyString
+  banchi: MyString
+  tel_sigai: MyString
+  tel_sinai: MyString
+  keitai: MyString
+  bikou: MyString
+  latitude: 1.5
+  longtude: 1.5
+  gmaps: false
+  douki: false
+  genki: false
+  kouenkai: false
+  kihukin: 1.5
+  syoukai_id: 1
+  level: 1

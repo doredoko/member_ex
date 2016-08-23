@@ -1,0 +1,89 @@
+<%= form_for(@person) do |f| %>
+  <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :town %><br>
+    <%= f.text_field :town %>
+  </div>
+  <div class="field">
+    <%= f.label :banchi %><br>
+    <%= f.text_field :banchi %>
+  </div>
+  <div class="field">
+    <%= f.label :tel_sigai %><br>
+    <%= f.text_field :tel_sigai %>
+  </div>
+  <div class="field">
+    <%= f.label :tel_sinai %><br>
+    <%= f.text_field :tel_sinai %>
+  </div>
+  <div class="field">
+    <%= f.label :keitai %><br>
+    <%= f.text_field :keitai %>
+  </div>
+  <div class="field">
+    <%= f.label :bikou %><br>
+    <%= f.text_field :bikou %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longtude %><br>
+    <%= f.text_field :longtude %>
+  </div>
+  <div class="field">
+    <%= f.label :gmaps %><br>
+    <%= f.check_box :gmaps %>
+  </div>
+  <div class="field">
+    <%= f.label :douki %><br>
+    <%= f.check_box :douki %>
+  </div>
+  <div class="field">
+    <%= f.label :genki %><br>
+    <%= f.check_box :genki %>
+  </div>
+  <div class="field">
+    <%= f.label :kouenkai %><br>
+    <%= f.check_box :kouenkai %>
+  </div>
+  <div class="field">
+    <%= f.label :kihukin %><br>
+    <%= f.text_field :kihukin %>
+  </div>
+  <div class="field">
+    <%= f.label :syoukai_id %><br>
+    <%= f.number_field :syoukai_id %>
+  </div>
+  <div class="field">
+    <%= f.label :level %><br>
+    <%= f.number_field :level %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

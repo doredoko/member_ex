@@ -1,0 +1,2 @@
+json.extract! person, :id, :name, :postal_code, :city, :town, :banchi, :tel_sigai, :tel_sinai, :keitai, :bikou, :latitude, :longtude, :gmaps, :douki, :genki, :kouenkai, :kihukin, :syoukai_id, :level, :created_at, :updated_at
+json.url person_url(person, format: :json)

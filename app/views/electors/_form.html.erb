@@ -1,0 +1,81 @@
+<%= form_for(@elector) do |f| %>
+  <% if @elector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@elector.errors.count, "error") %> prohibited this elector from being saved:</h2>
+
+      <ul>
+      <% @elector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :yomi %><br>
+    <%= f.text_field :yomi %>
+  </div>
+  <div class="field">
+    <%= f.label :town %><br>
+    <%= f.text_field :town %>
+  </div>
+  <div class="field">
+    <%= f.label :banchi %><br>
+    <%= f.text_field :banchi %>
+  </div>
+  <div class="field">
+    <%= f.label :kakunin %><br>
+    <%= f.check_box :kakunin %>
+  </div>
+  <div class="field">
+    <%= f.label :kazoku_id %><br>
+    <%= f.number_field :kazoku_id %>
+  </div>
+  <div class="field">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="field">
+    <%= f.label :bikou %><br>
+    <%= f.text_field :bikou %>
+  </div>
+  <div class="field">
+    <%= f.label :tel_sinai %><br>
+    <%= f.text_field :tel_sinai %>
+  </div>
+  <div class="field">
+    <%= f.label :kouenkai %><br>
+    <%= f.check_box :kouenkai %>
+  </div>
+  <div class="field">
+    <%= f.label :douki %><br>
+    <%= f.check_box :douki %>
+  </div>
+  <div class="field">
+    <%= f.label :kitaichi %><br>
+    <%= f.number_field :kitaichi %>
+  </div>
+  <div class="field">
+    <%= f.label :syoukai_id %><br>
+    <%= f.number_field :syoukai_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tehai_1 %><br>
+    <%= f.check_box :tehai_1 %>
+  </div>
+  <div class="field">
+    <%= f.label :tehai_2 %><br>
+    <%= f.check_box :tehai_2 %>
+  </div>
+  <div class="field">
+    <%= f.label :tehai_3 %><br>
+    <%= f.check_box :tehai_3 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
